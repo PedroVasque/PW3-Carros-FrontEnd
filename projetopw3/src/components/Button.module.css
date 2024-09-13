@@ -1,0 +1,14 @@
+.buttonContainer{
+    width: 100%;
+
+}
+
+button{
+    width: 100%;
+    border: 1px solid #5a585c;
+    border-radius: 5px;
+    color: #555050;
+    background: rgb(89, 88, 92);
+
+
+}
