@@ -1,21 +1,18 @@
-import styles from "./Select.module.css";
+import React from 'react';
 
-function Select({ name, text }) {
-  return (
-    
-    <div className={styles.form_control}>
-
-      <label htmlFor={name}>{text}</label>
-      <select name={name} id={name}>
-        <option value="">Escolha o modelo do seu Volkswagen </option>
-        <option value="">TSI</option>
-        <option value="">Comfortline</option>
-        <option value="">Sense</option>
-        <option value="">Highline</option>
-      </select>
-
-    </div>
-  );
-}
+const Select = ({ name, text, options, handlerChangeSelect }) => {
+    return (
+        <div>
+            <label htmlFor={name}>{text}</label>
+            <select name={name} onChange={handlerChangeSelect}>
+                {options.map((option) => (
+                    <option key={option.cod_categoria} value={option.cod_categoria}>
+                        {option.nome_categoria}
+                    </option>
+                ))}
+            </select>
+        </div>
+    );
+};
 
 export default Select;
