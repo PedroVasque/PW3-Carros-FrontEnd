@@ -1,9 +1,5 @@
-img{
-    width: 80px;
-    border-radius: 5px;
-} 
 
-.bookCard{
+.cod_categoria{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,11 +10,6 @@ img{
     font-family: Helvetica;
 }
 
-.titulo{
+.nome_carro{
     font-size: 12px;
 }
-
-.autor{
-    font-size: 10px;
-}
- 
