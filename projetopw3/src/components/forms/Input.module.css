@@ -1,22 +1,40 @@
-.form_control{
+.form_control {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
+    width: 100%; /* Adiciona largura total ao contêiner do formulário */
 }
 
-.form_control label{
-    padding: .7em;
-    border-radius: 0;
-    border: none;
-    color: #000154;
+.form_control label {
+    padding: 0.7em;
+    border-radius: 5px; /* Cantos levemente arredondados */
+    background-color: #e0e7ff; /* Fundo suave para o rótulo */
+    color: #000154; /* Cor do texto */
     font-weight: bold;
+    transition: background-color 0.3s; /* Transição suave ao passar o mouse */
 }
 
-.form_control input{
-    padding:10px;
-    width: 1000px;
+.form_control label:hover {
+    background-color: #c8d8ff; /* Mudança de cor ao passar o mouse */
 }
 
-.form_control input::placeholder{
-    color: #7B7B7B;
+.form_control input {
+    padding: 12px;
+    width: 100%; /* Torna o input responsivo */
+    max-width: 1000px; /* Limite máximo da largura */
+    border: 1px solid #ccc; /* Borda suave */
+    border-radius: 5px; /* Cantos arredondados */
+    font-size: 16px; /* Aumenta o tamanho da fonte */
+    transition: border-color 0.3s; /* Transição suave para a borda */
+}
+
+.form_control input:focus {
+    border-color: #000154; /* Cor da borda ao focar */
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra leve ao focar */
+}
+
+.form_control input::placeholder {
+    color: #7B7B7B; /* Cor do texto do placeholder */
+    font-style: italic; /* Estilo itálico para o placeholder */
 }

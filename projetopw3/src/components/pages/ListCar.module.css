@@ -1,8 +1,48 @@
-.list_car_container{
+.list_car_container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 4em;
+    background-color: #f8f9fa; /* Fundo claro para suavizar o visual */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
+    transition: background-color 0.3s; /* Transição suave ao passar o mouse */
+}
+
+.list_car_container:hover {
+    background-color: #e9ecef; /* Mudança de cor ao passar o mouse */
+}
+
+.list_car_container h2 {
+    font-size: 28px; /* Título maior e mais destacado */
+    color: #343a40; /* Cor escura para o título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    text-align: center; /* Centraliza o título */
+}
+
+.list_car_container p {
+    font-size: 18px; /* Tamanho do texto descritivo */
+    color: #6c757d; /* Cor suave para o texto */
+    text-align: center; /* Centraliza o texto */
+    max-width: 800px; /* Limite de largura para melhor legibilidade */
+    line-height: 1.6; /* Aumenta a altura da linha para conforto de leitura */
+    margin-bottom: 30px; /* Espaçamento abaixo do parágrafo */
+}
+
+.list_car_container .car_item {
+    background-color: #ffffff; /* Fundo branco para cada item do carro */
+    border: 1px solid #dee2e6; /* Borda suave */
+    border-radius: 8px; /* Cantos arredondados para os itens */
+    padding: 20px; /* Padding interno para os itens */
+    margin-bottom: 20px; /* Espaçamento entre os itens */
+    width: 100%; /* Largura total para os itens */
+    max-width: 600px; /* Limite máximo da largura dos itens */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transições suaves para interações */
+}
+
+.list_car_container .car_item:hover {
+    transform: translateY(-5px); /* Elevação ao passar o mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
 }

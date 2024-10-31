@@ -1,12 +1,41 @@
-.create_car_container{
+.create_car_container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 4em;
+    background-color: #f0f4f8; /* Fundo suave */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s; /* Transição suave ao passar o mouse */
 }
-.create_car_container img{
-    width: 1000px;
-    
+
+.create_car_container:hover {
+    background-color: #e0e7ee; /* Mudança de cor ao passar o mouse */
+}
+
+.create_car_container img {
+    width: 100%; /* Imagem responsiva */
+    max-width: 1000px; /* Limite máximo da largura */
+    border-radius: 10px; /* Cantos arredondados para a imagem */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* Sombra leve para a imagem */
+    margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+}
+
+h1 {
+    font-size: 32px; /* Título maior */
+    font-weight: bold;
+    color: #34495e; /* Cor escura */
+    text-align: center;
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+p {
+    font-size: 18px; /* Tamanho do texto */
+    color: #7f8c8d; /* Cor mais suave */
+    text-align: center;
+    max-width: 800px; /* Limite máximo de largura para o texto */
+    margin-bottom: 20px; /* Espaçamento abaixo do texto */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
 }

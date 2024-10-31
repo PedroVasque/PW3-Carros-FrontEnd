@@ -3,7 +3,7 @@ import style from "../pages/ListCar.module.css";
 import CardCar from "../CardCar";
 import Container from "../layout/Container";
 import ContainerCar from "../layout/ContainerCar"
-
+import tcross from "../../assets/carros/tcross.png"
 
 const ListCar = () => {
   const [cars, setCars] = useState([]);
@@ -36,7 +36,7 @@ const ListCar = () => {
       <div className={style.car_list_container}>
         {cars.map((car) => (
           <div key={car.cod_categoria} className={style.car_card}>
-          <CardCar cod_categoria={car.cod_categoria} nome_carro={car.nome_carro} cor_carro={car.marca_carro}/>
+          <CardCar cod_categoria={car.cod_categoria} nome_carro={car.nome_carro} cor_carro={car.marca_carro} imagem={tcross}/>
             {/* <h2>{car.nome_carro}</h2>
             <p>Marca: {car.marca_carro}</p>
             <p>Ano: {car.ano_carro}</p> */}

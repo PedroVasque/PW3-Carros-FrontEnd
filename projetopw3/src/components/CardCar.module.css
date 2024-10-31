@@ -1,15 +1,34 @@
-
-.cod_categoria{
+.container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: max-content;
-    border-radius: 5px;
-    background-color: #DEDEDE;
-    border: 1px solid #CCC;
-    font-family: Helvetica;
-}
-
-.nome_carro{
-    font-size: 12px;
-}
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+  }
+  
+  .imagem {
+    width: 120px; /* A largura da imagem */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px 0; /* Margem para espaçamento */
+  }
+  
+  .nome_carro {
+    font-size: 26px; /* Mantive o tamanho maior */
+    font-weight: bold;
+    margin: 10px 0;
+    color: #2c3e50; /* Cor mais escura para destaque */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    letter-spacing: 1px; /* Espaçamento entre letras para melhor legibilidade */
+    transition: color 0.3s; /* Transição suave para a cor */
+  }
+  
+  .nome_carro:hover {
+    color: #3498db; /* Muda a cor ao passar o mouse */
+  }
+  
+  .cor_carro {
+    font-size: 18px; /* Aumentei o tamanho para melhor legibilidade */
+    color: #7f8c8d; /* Cor mais suave */
+    margin-top: 10px;
+  }
+  
