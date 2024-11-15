@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import style from "../pages/ListCar.module.css";
 import CardCar from "../CardCar";
 import Container from "../layout/Container";
-import ContainerCar from "../layout/ContainerCar"
+import ContainerCar from "../layout/ContainerCar";
 import tcross from "../../assets/carros/tcross.png"
+
 
 const ListCar = () => {
   const [cars, setCars] = useState([]);
@@ -19,8 +20,8 @@ const ListCar = () => {
         });
         const data = await response.json();
         setCars(data.data);
-        console.log("Aqui")
-        console.log(data.data)
+        console.log("Aqui");
+        console.log(data.data);
       } catch (error) {
         console.error("Erro ao buscar carros:", error);
       }
@@ -30,20 +31,23 @@ const ListCar = () => {
   }, []);
 
   return (
+    <Container>
+      <section className={style.list_car_container}>
+        <h1>Lista de Carros</h1>
 
-    <section className={style.create_car_container}>
-      <h1>Lista de Carros</h1>
-      <div className={style.car_list_container}>
-        {cars.map((car) => (
-          <div key={car.cod_categoria} className={style.car_card}>
-          <CardCar cod_categoria={car.cod_categoria} nome_carro={car.nome_carro} cor_carro={car.marca_carro} imagem={tcross}/>
-            {/* <h2>{car.nome_carro}</h2>
-            <p>Marca: {car.marca_carro}</p>
-            <p>Ano: {car.ano_carro}</p> */}
-          </div>
-        ))}
-      </div>
-    </section>
+        <ContainerCar>
+          {cars.map((car) => (
+            <CardCar
+              cod_carro={car.cod_carro}
+              nome_carro={car.nome_carro}
+              cor_carro={car.cor_carro}
+              imagem={tcross}
+              key={car.cod_carro}
+            />
+          ))}
+        </ContainerCar>
+      </section>
+    </Container>
   );
 };
 

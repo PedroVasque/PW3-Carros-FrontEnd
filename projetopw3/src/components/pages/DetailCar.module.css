@@ -1,61 +1,110 @@
-.grid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 10px;
+/* DetailCar.module.css */
+
+/* Estilos gerais para o grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.info{
-    display: grid;
-    align-items: start;
-    justify-items: start;
-    align-self: self-start;
+/* Contêiner para a imagem */
+.container_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  overflow: hidden;
 }
 
-.container_img{
-    display: grid;
-    align-items: center;
-    justify-content: end;
-    width: 100%;
-    /* background-color: #999; */
+.img_book_detail {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.img_book_detail{
-    display: grid;
-    align-items: end;
-    justify-items: end;
-    width: 300px;
-    border-radius: 5px;
+/* Estilos para as informações do carro/livro */
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.titulo{
-    font-size: 40px;
-    padding: 10px;
+.titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.autor{
-    font-size: 30px;
-    color: #ccc;
-    padding: 10px;
+.autor {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 15px;
 }
 
-.descricao{
-    font-size: 20px;
-    text-align: justify ;
-    padding: 10px;
+.descricao {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.btn{
-    border: 1px solid #FFF;
-    border-radius: 5px;
-    background: linear-gradient(180deg, rgba(17,179,53,0.9940709560191264) 0%, rgba(19,215,2,1) 100%);
-    color: #FFF;
-    padding: 10px;
+/* Contêiner para os botões */
+.container_buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.container_buttons{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:5px;
-    color: #999;
+button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+button:first-child {
+  background-color: #4caf50; /* Verde para editar */
+  color: #fff;
+}
+
+button:last-child {
+  background-color: #f44336; /* Vermelho para excluir */
+  color: #fff;
+}
+
+/* Adicionando uma pequena responsividade */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container_img {
+    height: 300px;
+  }
+
+  .titulo {
+    font-size: 1.8rem;
+  }
+
+  .autor {
+    font-size: 1rem;
+  }
+
+  .descricao {
+    font-size: 0.9rem;
+  }
 }

@@ -1,7 +1,7 @@
 import style from "./CardCar.module.css"
-import Button from "./forms/Button"
+import Button from "./Button"
 
-const CardCar = ({ cod_categoria, nome_carro, cor_carro, imagem})=>{
+const CardCar = ({nome_carro, cor_carro, imagem, cod_carro})=>{
     
     return(
     <div className = {style.container}>
@@ -9,7 +9,7 @@ const CardCar = ({ cod_categoria, nome_carro, cor_carro, imagem})=>{
             <h3 className={style.cor_carro}>{cor_carro}</h3>
             <img className={style.imagem} src={imagem} alt={ cor_carro} title={{cor_carro}}/>
             <div>
-                <Button label= 'Detalhes' router='/DetailCar/'/>
+                <Button label= 'Detalhes' router='/DetailCar/' cod_carro={cod_carro}/>
             </div>
 
         </div>

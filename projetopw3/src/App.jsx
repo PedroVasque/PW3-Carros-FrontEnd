@@ -5,6 +5,7 @@ import Home from "./components/pages/Home";
 import CreateCar from "./components/pages/CreateCar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ListCar from "./components/pages/ListCar";
+import DetalilCar from "./components/pages/DetailCar";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/" element={<Home/>}/>
               <Route path="/createCar" element={<CreateCar/>}/>
               <Route path="/listCar" element={<ListCar/>}/>
+              <Route path="/DetailCar/:cod_carro" element={<DetalilCar/>}/>
             </Route>
 
           </Routes>
