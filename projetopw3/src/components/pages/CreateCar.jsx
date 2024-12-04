@@ -17,12 +17,12 @@ const CreateCar = () => {
     /* HANDLER DE CAPTURA DOS DADOS DE INPUT (NOME DO CARRO, AUTOR E DESCRIÇÃO) */
     function handlerChangeCar(event) {
         setCar({ ...car, [event.target.name]: event.target.value });
-        console.log(car);
+        (car);
     }
 
     function handlerChangeSelect(event) {
       setCar({ ...car, cod_categoria: event.target.value });
-      console.log(car);
+      (car);
   }
 
     /* RECUPERA OS DADOS DE CATEGORIAS DA APIREST */
@@ -38,17 +38,17 @@ const CreateCar = () => {
     
         .then((resp) => resp.json())
         .then((data) => {
-            console.log('DATA: ' + data.data[0].nome_categoria);
+            ('DATA: ' + data.data[0].nome_categoria);
             setCategorias(data.data);
         })
         .catch((error) => {
-            console.log(error);
+            (error);
         });
     }, []);
 
     /* INSERÇÃO DOS DADOS DE CARRO */
     function createCar(car) {
-        console.log(JSON.stringify(car));
+        (JSON.stringify(car));
 
         fetch('http://localhost:5000/inserirCar', {
             method: 'POST',
@@ -62,11 +62,11 @@ const CreateCar = () => {
         })
         .then((resp) => resp.json())
         .then((data) => {
-            console.log(data);
+            (data);
             // navigate('/carros', { state: 'CARRO CADASTRADO COM SUCESSO!' });
         })
         .catch((err) => {
-            console.log(err);
+            (err);
         });
     }
 

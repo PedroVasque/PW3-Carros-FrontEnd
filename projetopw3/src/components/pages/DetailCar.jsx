@@ -6,8 +6,8 @@ import tcross from "../../assets/carros/tcross.png";
 
 const DetailCar = () => {
     // Recupera o código do carro
-    const { cod_car } = useParams();
-    console.log('Código do carro: ' + cod_car);
+    const { cod_carro } = useParams();
+    console.log('Código do carro: ' + cod_carro);
 
     // Cria o state para armazenar os dados do carro
     const [car, setCar] = useState({});
@@ -16,8 +16,8 @@ const DetailCar = () => {
     /* RECUPERANDO OS DADOS DO CARRO PARA A EXIBIÇÃO */
     useEffect(() => {
         // Verifica se o cod_car está definido antes de fazer a requisição
-        if (cod_car) {
-            fetch(`http://localhost:5000/listagemCarro/${cod_car}`, {
+        if (cod_carro) {
+            fetch(`http://localhost:5000/listagemCar/${cod_carro}`, {
                 method: 'GET',
                 mode: 'cors',
                 headers: {
@@ -30,18 +30,21 @@ const DetailCar = () => {
                     if (!resp.ok) {
                         throw new Error('Erro ao buscar os dados do carro');
                     }
-                    return resp.json();
+                    return resp.json()
                 })
-                .then((data) => {
-                    setCar(data.data);  // Atualiza o estado com os dados do carro
-                    console.log('Dados do carro:', data.data);
+                .then((resp) => {
+                    console.log('Dados do carro:', resp);
+                    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+                    setCar(resp.data);
+                    console.log(resp.data)
+                    console.log(car)
                 })
                 .catch((err) => {
                     console.error(err);
                     setError(true);
                 });
         }
-    }, [cod_car]);
+    }, [cod_carro]);
 
   
     return (
@@ -49,17 +52,18 @@ const DetailCar = () => {
             <div className={style.container_img}>
                 <img className={style.img_carro_detail} src={tcross} alt="Imagem do carro" />
             </div>
-
+            
             <div className={style.info}>
-                {/* Exibindo os dados do carro */}
-                <span className={style.nome_car}>Nome: {car.nome_carro}</span>
-                <span className={style.cor_carro}>Cor: {car.cor_carro}</span>
-
-                <div className={style.container_buttons}>
-                    <Button label="EDITAR" />
-                    <Button label="EXCLUIR" />
-                </div>
+                <span className={style.carro}>Nome do carro: {car.nome_carro}</span>
+                <span className={style.cor}>Cor: {car.cor_carro}</span>
+                <span className={style.categoria}>Categoria: {car.cod_categoria}</span>
             </div>
+                <div className={style.container_buttons}>
+                    <Button label="EDITAR" router='/DetailCar/' cod_car={cod_carro} />
+                    
+                    <Button label='EXCLUIR' router='/DeleteCar/' cod_car={cod_carro} />
+                </div>
+            
         </div>
     );
 };

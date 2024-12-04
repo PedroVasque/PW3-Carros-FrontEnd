@@ -6,6 +6,9 @@ import CreateCar from "./components/pages/CreateCar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ListCar from "./components/pages/ListCar";
 import DetalilCar from "./components/pages/DetailCar";
+import DeleteCar from "./components/pages/DeleteCar";
+import UpdateCar from "./components/pages/UpdateCar"
+
 
 function App() {
   return (
@@ -21,6 +24,8 @@ function App() {
               <Route path="/createCar" element={<CreateCar/>}/>
               <Route path="/listCar" element={<ListCar/>}/>
               <Route path="/DetailCar/:cod_carro" element={<DetalilCar/>}/>
+              <Route path="/DeleteCar/:cod_carro" element={<DeleteCar/>}/>
+              <Route path="/UpdateCar/:cod_carro" element={<UpdateCar/>}/>
             </Route>
 
           </Routes>
