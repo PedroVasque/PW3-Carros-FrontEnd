@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Select = ({ name, text, options, handlerChangeSelect }) => {
+const Select = ({ name, text, options, handlerChangeSelect, value }) => {
     return (
         <div>
             <label htmlFor={name}>{text}</label>
-            <select name={name} onChange={handlerChangeSelect}>
-                <option>Selecione um Genero</option>
+            <select name={name} onChange={handlerChangeSelect} value={value}>
+                <option>Selecione uma categoria</option>
 
                 {
                     options.map((option) => {

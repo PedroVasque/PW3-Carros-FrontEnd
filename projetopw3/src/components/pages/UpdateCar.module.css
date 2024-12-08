@@ -1,8 +1,60 @@
-.create_book_container{
+.create_car_container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 4em;
+    background-color: #f0f4f8; /* Fundo suave */
+    border-radius: 15px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transição suave */
+}
+
+.create_car_container:hover {
+    background-color: #e0e7ee; /* Mudança de cor ao passar o mouse */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
+}
+
+.create_car_container img {
+    width: 100%; /* Imagem responsiva */
+    max-width: 1000px; /* Limite máximo da largura */
+    border-radius: 15px; /* Cantos arredondados para a imagem */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve para a imagem */
+    margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+    object-fit: cover; /* Ajusta a imagem dentro do contêiner */
+}
+
+h1 {
+    font-size: 36px; /* Título maior */
+    font-weight: bold;
+    color: #1a237e; /* Azul profundo */
+    text-align: center;
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    text-transform: uppercase; /* Transformar texto em maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+}
+
+p {
+    font-size: 20px; /* Tamanho do texto */
+    color: #7d3c98; /* Roxo suave */
+    text-align: center;
+    max-width: 800px; /* Limite máximo de largura para o texto */
+    margin-bottom: 20px; /* Espaçamento abaixo do texto */
+    line-height: 1.7; /* Altura da linha para melhor legibilidade */
+    padding: 0 1em; /* Adiciona espaçamento lateral */
+}
+
+@media (max-width: 768px) {
+    .create_car_container {
+        padding: 2em; /* Reduz o padding em telas menores */
+    }
+    
+    h1 {
+        font-size: 28px; /* Título menor em telas pequenas */
+    }
+
+    p {
+        font-size: 18px; /* Tamanho do texto menor */
+    }
 }

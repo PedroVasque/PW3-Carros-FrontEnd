@@ -5,18 +5,15 @@ import Button from '../Button';
 import tcross from "../../assets/carros/tcross.png";
 
 const DetailCar = () => {
-    // Recupera o código do carro
     const { cod_carro } = useParams();
     console.log('Código do carro: ' + cod_carro);
     const navigate = useNavigate();
 
-    // Cria o state para armazenar os dados do carro
     const [car, setCar] = useState({});
     const [error, setError] = useState(false);
+    const [categoria, setCategoria] = useState({});
 
-    /* RECUPERANDO OS DADOS DO CARRO PARA A EXIBIÇÃO */
     useEffect(() => {
-        // Verifica se o cod_car está definido antes de fazer a requisição
         if (cod_carro) {
             fetch(`http://localhost:5000/listagemCar/${cod_carro}`, {
                 method: 'GET',
@@ -28,16 +25,11 @@ const DetailCar = () => {
                 },
             })
                 .then((resp) => {
-                    if (!resp.ok) {
-                        throw new Error('Erro ao buscar os dados do carro');
-                    }
-                    return resp.json()
+                    if (!resp.ok) throw new Error('Erro ao buscar os dados do carro');
+                    return resp.json();
                 })
                 .then((resp) => {
-                    console.log('Dados do carro:', resp);
                     setCar(resp.data);
-                    console.log(resp.data)
-                    console.log(car)
                 })
                 .catch((err) => {
                     console.error(err);
@@ -46,6 +38,29 @@ const DetailCar = () => {
         }
     }, [cod_carro]);
 
+    useEffect(() => {
+        if (car.cod_categoria) {
+            fetch(`http://localhost:5000/listagemCategoria/${car.cod_categoria}`, {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': '*',
+                },
+            })
+                .then((resp) => resp.json())
+                .then((resp) => {
+                    console.log(resp);
+                    setCategoria(resp.data);
+                })
+                .catch((err) => {
+                    console.error(err);
+                    setError(true);
+                });
+        }
+    }, [car.cod_categoria]);
+
     function deleteCar() {
         fetch(`http://localhost:5000/excluirCarro/${cod_carro}`, {
             method: 'DELETE',
@@ -53,29 +68,25 @@ const DetailCar = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': '*'
+                'Access-Control-Allow-Headers': '*',
             },
         })
             .then((resp) => {
-                if (!resp.ok) {
-                    throw new Error('Erro ao excluir o carro');
-                }
+                if (!resp.ok) throw new Error('Erro ao excluir o carro');
                 return resp.json();
             })
-            .then((data) => {
-                console.log('Carro excluído:', data);
+            .then(() => {
                 navigate("/listCar");
             })
             .catch((err) => {
                 console.error('Erro ao excluir o carro:', err);
             });
     }
-    
 
     function updateCar() {
-        navigate(`/createCar/${cod_carro}`)
+        navigate(`/updateCar/${cod_carro}`);
     }
-  
+
     return (
         <div className={style.grid}>
             <div className={style.container_img}>
@@ -84,7 +95,7 @@ const DetailCar = () => {
             <div className={style.info}>
                 <span className={style.carro}>Nome do carro: {car.nome_carro}</span>
                 <span className={style.cor}>Cor: {car.cor_carro}</span>
-                <span className={style.categoria}>Categoria: {car.nome_categoria}</span>
+                <span className={style.categoria}>Categoria: {categoria?.nome_categoria || 'Carro sem categoria'}</span>
             </div>
             <div className={style.container_buttons}>
                 <button onClick={updateCar}>Editar</button>
