@@ -5,11 +5,14 @@ const Select = ({ name, text, options, handlerChangeSelect }) => {
         <div>
             <label htmlFor={name}>{text}</label>
             <select name={name} onChange={handlerChangeSelect}>
-                {options.map((option) => (
-                    <option key={option.cod_categoria} value={option.cod_categoria}>
-                        {option.nome_categoria}
-                    </option>
-                ))}
+                <option>Selecione um Genero</option>
+
+                {
+                    options.map((option) => {
+                        // console.log(option.cod_genero + ' - ' + option.nome_genero)   
+                        return <option value={option.cod_categoria}>{option.nome_categoria}</option>                                      
+                    })
+                }
             </select>
         </div>
     );

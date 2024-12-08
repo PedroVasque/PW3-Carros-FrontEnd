@@ -20,8 +20,6 @@ const ListCar = () => {
         });
         const data = await response.json();
         setCars(data.data);
-        ("Aqui");
-        (data.data);
       } catch (error) {
         console.error("Erro ao buscar carros:", error);
       }
